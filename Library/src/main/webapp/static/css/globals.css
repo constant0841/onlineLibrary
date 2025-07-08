@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-balance {
+    text-wrap: balance;
+}
+
+:root {
+    --radius: 0.5rem;
+
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+    --primary: #1A1A1A;
+    --primary-foreground: #FEFCF8;
+
+    --beige-50: #FEFCF8;
+    --beige-100: #F5F1E8;
+    --beige-200: #E8E2D4;
+    --beige-300: #D4C4A8;
+    --beige-400: #C4B08A;
+    --beige-500: #B09C6C;
+    --beige-600: #9A8A5E;
+    --beige-700: #7A6B47;
+    --beige-800: #5A4F35;
+    --beige-900: #3A3323;
+}
+
+.beige-bg {
+    background-color: var(--beige-100);
+}
+
+.rounded-lg {
+    border-radius: var(--radius);
+}
+
+@keyframes accordion-down {
+    from { height: 0; }
+    to { height: 200px; } /* 또는 height:auto로 애니메이션 없이 처리 */
+}
