@@ -49,7 +49,7 @@
                 </div>
             </c:if>
 
-            <form action="/resetPassword" method="post" id="resetPasswordForm">
+            <form action="/newPassword" method="post" id="newPasswordForm">
 
                 <!-- 인증번호 입력 -->
                 <div class="space-y-2 mb-4">
@@ -152,8 +152,8 @@
         }
     });
 
-    // 폼 제출 시 유효성 검사
-    document.getElementById("resetPasswordForm").addEventListener("submit", function (e) {
+    // 폼 제출 시 유효성 검사 - ID를 newPasswordForm으로 수정
+    document.getElementById("newPasswordForm").addEventListener("submit", function (e) {
         const resetCode = document.getElementById("resetCode").value;
         const newPassword = document.getElementById("newPassword").value;
         const confirmNewPassword = document.getElementById("confirmNewPassword").value;

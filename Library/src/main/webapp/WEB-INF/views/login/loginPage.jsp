@@ -64,7 +64,7 @@
       </form>
       <div class="text-center space-y-2">
         <p class="text-sm text-gray-600">
-          <a href="/changePassword" class="text-gray-900 hover:underline">비밀번호를 잊으셨나요?</a>
+          <a href="/forgotPassword" class="text-gray-900 hover:underline">비밀번호를 잊으셨나요?</a>
         </p>
         <p class="text-sm text-beige-600">
           계정이 없으신가요?

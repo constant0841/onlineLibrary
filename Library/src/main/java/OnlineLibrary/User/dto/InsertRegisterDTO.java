@@ -20,6 +20,7 @@ public class InsertRegisterDTO {
     private String userJob;
     private Boolean userIsAdReceive;
     private Boolean rememberEmail;
+    private Boolean isAdmin;
 
     public InsertRegisterDTO(){}
 }
