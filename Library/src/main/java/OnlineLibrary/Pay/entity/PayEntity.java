@@ -1,4 +1,4 @@
-package OnlineLibrary.Pay;
+package OnlineLibrary.Pay.entity;
 
 import OnlineLibrary.Order.entity.OrderEntity;
 import OnlineLibrary.User.entity.UserEntity;

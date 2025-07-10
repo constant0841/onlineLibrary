@@ -1,4 +1,4 @@
-package OnlineLibrary.Pay;
+package OnlineLibrary.Pay.entity;
 
 import jakarta.persistence.*;
 

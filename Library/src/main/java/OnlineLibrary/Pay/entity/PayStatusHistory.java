@@ -1,8 +1,7 @@
-package OnlineLibrary.Pay;
+package OnlineLibrary.Pay.entity;
 
 import OnlineLibrary.Order.entity.OrderEntity;
 import jakarta.persistence.*;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 

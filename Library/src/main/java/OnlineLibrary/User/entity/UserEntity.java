@@ -34,10 +34,10 @@ public class UserEntity{
     @Column(name = "is_admin", columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean isAdmin;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_status_code")
-//    private UserStatusCode userStatusCode;
-//
+    @ManyToOne
+    @JoinColumn(name = "user_status_code")
+    private UserStatusCode userStatusCode;
+
 //    @ManyToOne
 //    @JoinColumn(name = "user_grade_code")
 //    private UserGradeCode userGrade;

@@ -13,10 +13,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
+                .csrf(csrf -> csrf.disable()) // 이미 CSRF가 비활성화되어 있어서 좋음
                 .authorizeHttpRequests(auth -> auth
-                        // 모든 페이지 허용 (개발용)
+                        // 모든 페이지 허용 (개발용) - 이것도 이미 잘 설정됨
                         .requestMatchers("/**").permitAll()
+                )
+                // 세션 관리 추가 (중요!)
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(org.springframework.security.config.http.SessionCreationPolicy.IF_REQUIRED)
+                        .maximumSessions(1)
+                        .maxSessionsPreventsLogin(false)
                 )
 //                .formLogin(form -> form
 //                        .loginPage("/login")
