@@ -24,6 +24,7 @@
     <span id="quantity-${items.productOptionId}">${items.productCount}</span>
     <button type="button" onclick="updateCount(${items.productOptionId}, +1)">+</button>
   </form>
+
     <!-- 삭제 버튼 -->
   <button onclick="deleteCart(${items.userId}, ${items.productOptionId})">삭제</button>
   <hr>

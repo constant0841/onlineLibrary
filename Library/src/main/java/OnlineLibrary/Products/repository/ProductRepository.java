@@ -87,4 +87,11 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Integer>
      * 최신 등록 상품 조회
      */
     List<ProductEntity> findTop10BySalesStatusOrderByCreatedDateDesc(String salesStatus);
+
+    /**
+     * 카테고리별 상품 조회 (JOIN 사용)
+     */
+    @Query("SELECT DISTINCT pc.product FROM ProductCategory pc " +
+            "WHERE pc.category.categoryId = :categoryId")
+    List<ProductEntity> findByCategoryId(@Param("categoryId") String categoryId);
 }

@@ -74,7 +74,7 @@ public class AdminProductController {
                 productMap.put("salesStatus", product.getSalesStatus() != null ? product.getSalesStatus() : "");
                 productMap.put("productRating", product.getProductRating() != null ? product.getProductRating() : 0);
                 productMap.put("imageUrl", product.getImageUrl() != null ? product.getImageUrl() : "/images/no-image.png");
-                productMap.put("pdfPreviewUrl", product.getPdfPreviewUrl() != null ? product.getPdfPreviewUrl() : ""); // 새로 추가
+                productMap.put("pdfPreviewUrl", product.getPdfPreviewUrl() != null ? product.getPdfPreviewUrl() : "");
                 productMap.put("createdDate", product.getCreatedDate() != null ? product.getCreatedDate().toString() : "");
 
                 result.add(productMap);
@@ -91,24 +91,25 @@ public class AdminProductController {
     }
 
     /**
-     * 상품 등록 - 파일 업로드 기능 추가
+     * 상품 등록 - JavaScript FormData 키명과 매칭
+     */
+    /**
+     * 상품 등록 - 텍스트만 (파일 업로드 제외)
      */
     @PostMapping("/register")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> registerProduct(
-            @RequestParam String productName,
-            @RequestParam String isbn,
-            @RequestParam Integer productPrice,
-            @RequestParam String publisher,
-            @RequestParam String author,
-            @RequestParam Integer stockQuantity,
-            @RequestParam String salesStatus,
-            @RequestParam(required = false) String productSize,
-            @RequestParam(required = false) Integer productRating,
-            @RequestParam(required = false) Integer salesIndex,
-            @RequestParam(required = false) String productDescription,
-            @RequestParam(required = false) MultipartFile imageFile, // 이미지 파일
-            @RequestParam(required = false) MultipartFile pdfFile,   // PDF 파일
+            @RequestParam("productName") String productName,
+            @RequestParam("isbn") String isbn,
+            @RequestParam("productPrice") Integer productPrice,
+            @RequestParam("publisher") String publisher,
+            @RequestParam("author") String author,
+            @RequestParam("stockQuantity") Integer stockQuantity,
+            @RequestParam("salesStatus") String salesStatus,
+            @RequestParam(value = "productSize", required = false) String productSize,
+            @RequestParam(value = "productRating", required = false, defaultValue = "0") Integer productRating,
+            @RequestParam(value = "salesIndex", required = false, defaultValue = "0") Integer salesIndex,
+            @RequestParam(value = "productDescription", required = false) String productDescription,
             HttpSession session) {
 
         Map<String, Object> response = new HashMap<>();
@@ -120,14 +121,10 @@ public class AdminProductController {
                 return ResponseEntity.status(403).body(response);
             }
 
-            System.out.println("=== 상품 등록 요청 ===");
+            System.out.println("=== 상품 등록 요청 (텍스트만) ===");
             System.out.println("상품명: " + productName + ", ISBN: " + isbn + ", 가격: " + productPrice);
-            System.out.println("이미지 파일: " + (imageFile != null ? imageFile.getOriginalFilename() : "없음"));
-            System.out.println("PDF 파일: " + (pdfFile != null ? pdfFile.getOriginalFilename() : "없음"));
 
-            // 기본값 설정
-            if (productRating == null) productRating = 0;
-            if (salesIndex == null) salesIndex = 0;
+            // 기본값 설정 및 null 체크
             if (productSize == null || productSize.trim().isEmpty()) productSize = "";
             if (productDescription == null || productDescription.trim().isEmpty()) productDescription = "";
 
@@ -148,30 +145,8 @@ public class AdminProductController {
             product.setCreatedDate(LocalDate.now());
             product.setUpdatedDate(LocalDate.now());
 
-            // 파일 업로드 처리
-            try {
-                // 이미지 업로드
-                String imageUrl = fileUploadService.uploadImage(imageFile);
-                if (imageUrl != null) {
-                    product.setImageUrl(imageUrl);
-                    System.out.println("이미지 업로드 성공: " + imageUrl);
-                } else {
-                    product.setImageUrl("/images/no-image.png");
-                }
-
-                // PDF 업로드
-                String pdfUrl = fileUploadService.uploadPdf(pdfFile);
-                if (pdfUrl != null) {
-                    product.setPdfPreviewUrl(pdfUrl);
-                    System.out.println("PDF 업로드 성공: " + pdfUrl);
-                }
-
-            } catch (Exception fileException) {
-                System.err.println("파일 업로드 오류: " + fileException.getMessage());
-                response.put("success", false);
-                response.put("message", "파일 업로드 중 오류가 발생했습니다: " + fileException.getMessage());
-                return ResponseEntity.ok(response);
-            }
+            // 기본 이미지 설정 (파일 업로드 없음)
+            product.setImageUrl("/images/no-image.png");
 
             // 상품 저장
             productService.saveProduct(product);

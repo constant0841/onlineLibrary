@@ -8,26 +8,60 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
-        .beige-100 { background-color: #f7f5f3; }
-        .beige-200 { background-color: #ede8e3; }
-        .beige-300 { background-color: #e3ddd6; }
-        .beige-600 { color: #8b7355; }
-        .beige-700 { color: #6b5b47; }
-        .beige-800 { background-color: #5a4a38; }
-        .text-beige-600 { color: #8b7355; }
-        .text-beige-700 { color: #6b5b47; }
-        .border-beige-200 { border-color: #ede8e3; }
-        .border-beige-300 { border-color: #e3ddd6; }
-        .bg-beige-800:hover { background-color: #5a4a38; }
+        .beige-100 {
+            background-color: #f7f5f3;
+        }
+
+        .beige-200 {
+            background-color: #ede8e3;
+        }
+
+        .beige-300 {
+            background-color: #e3ddd6;
+        }
+
+        .beige-600 {
+            color: #8b7355;
+        }
+
+        .beige-700 {
+            color: #6b5b47;
+        }
+
+        .beige-800 {
+            background-color: #5a4a38;
+        }
+
+        .text-beige-600 {
+            color: #8b7355;
+        }
+
+        .text-beige-700 {
+            color: #6b5b47;
+        }
+
+        .border-beige-200 {
+            border-color: #ede8e3;
+        }
+
+        .border-beige-300 {
+            border-color: #e3ddd6;
+        }
+
+        .bg-beige-800:hover {
+            background-color: #5a4a38;
+        }
 
         .file-upload-area {
             border: 2px dashed #e3ddd6;
             transition: all 0.3s ease;
         }
+
         .file-upload-area:hover {
             border-color: #8b7355;
             background-color: #f7f5f3;
         }
+
         .file-upload-area.dragover {
             border-color: #6b5b47;
             background-color: #ede8e3;
@@ -150,7 +184,8 @@
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label for="product_rating" class="block text-sm font-medium text-gray-700 mb-2">평점 (1-5)</label>
+                            <label for="product_rating" class="block text-sm font-medium text-gray-700 mb-2">평점
+                                (1-5)</label>
                             <input type="number" id="product_rating" name="product_rating" min="1" max="5" step="0.1"
                                    class="w-full px-3 py-2 border border-beige-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-beige-600 focus:border-transparent"
                                    placeholder="예: 4.5">
@@ -245,17 +280,39 @@
                     <table class="min-w-full divide-y divide-beige-200">
                         <thead class="bg-beige-100">
                         <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">이미지</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">상품명</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ISBN</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">저자</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">출판사</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">가격</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">재고</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">평점</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">판매지수</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">상태</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">작업</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                이미지
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                상품명
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                ISBN
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                저자
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                출판사
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                가격
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                재고
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                평점
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                판매지수
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                상태
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                작업
+                            </th>
                         </tr>
                         </thead>
                         <tbody id="product-table-body" class="bg-white divide-y divide-beige-200">
@@ -268,7 +325,7 @@
 </main>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         console.log("상품 관리 페이지 로드 완료");
 
         if (typeof lucide !== 'undefined') {
@@ -430,29 +487,26 @@
     document.getElementById('productForm').addEventListener('submit', function(e) {
         e.preventDefault();
 
-        const formData = new FormData();
-        formData.append('productName', document.getElementById('product_name').value.trim());
-        formData.append('isbn', document.getElementById('isbn').value.trim());
-        formData.append('author', document.getElementById('author').value.trim());
-        formData.append('publisher', document.getElementById('publisher').value.trim());
-        formData.append('productPrice', document.getElementById('product_price').value);
-        formData.append('stockQuantity', document.getElementById('stock_quantity').value);
-        formData.append('salesStatus', document.getElementById('sales_status').value);
-        formData.append('productSize', document.getElementById('product_size').value.trim());
-        formData.append('productRating', document.getElementById('product_rating').value || 0);
-        formData.append('salesIndex', document.getElementById('sales_index').value || 0);
-        formData.append('productDescription', document.getElementById('product_description').value.trim());
-
-// 이미지, PDF 파일 추가
-        const imageFile = document.getElementById('book_image').files[0];
-        if (imageFile) formData.append('bookImage', imageFile);
-
-        const pdfFile = document.getElementById('preview_pdf').files[0];
-        if (pdfFile) formData.append('previewPdf', pdfFile);
+        // FormData 대신 URLSearchParams 사용 (multipart가 아닌 일반 POST)
+        const params = new URLSearchParams();
+        params.append('productName', document.getElementById('product_name').value.trim());
+        params.append('isbn', document.getElementById('isbn').value.trim());
+        params.append('author', document.getElementById('author').value.trim());
+        params.append('publisher', document.getElementById('publisher').value.trim());
+        params.append('productPrice', document.getElementById('product_price').value);
+        params.append('stockQuantity', document.getElementById('stock_quantity').value);
+        params.append('salesStatus', document.getElementById('sales_status').value);
+        params.append('productSize', document.getElementById('product_size').value.trim());
+        params.append('productRating', document.getElementById('product_rating').value || 0);
+        params.append('salesIndex', document.getElementById('sales_index').value || 0);
+        params.append('productDescription', document.getElementById('product_description').value.trim());
 
         fetch('/admin/product/register', {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: params
         })
             .then(response => response.json())
             .then(data => {
@@ -468,8 +522,8 @@
                 console.error('Error:', error);
                 alert('상품 등록 중 오류가 발생했습니다.');
             });
-
     });
+
     function deleteProduct(productId) {
         if (!confirm('정말 삭제하시겠습니까?')) return;
 

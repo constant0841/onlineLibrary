@@ -97,4 +97,8 @@ public class ProductService {
     public List<ProductEntity> findBestSellers(int limit) {
         return productRepository.findTop10BySalesStatusOrderBySalesCountDesc("판매중");
     }
+
+    public List<ProductEntity> getProductsByCategory(String categoryId) {
+        return productRepository.findByCategoryId(categoryId);
+    }
 }
